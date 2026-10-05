@@ -161,8 +161,8 @@ AttributeError: module 'inspect' has no attribute 'signature'
 
 ## 与《游戏项目研发流程规范》的关系
 
-本工具的评分规则**完全来自**配套仓库 `game-pm-playbook` 中的 `03-检查清单/DoR-需求就绪定义.md`。
+本工具的评分规则**完全来自**配套仓库 [`game-pm-playbook`](https://github.com/dbwjhiqvdy/game-pm-playbook) 中的 `03-检查清单/DoR-需求就绪定义.md`。
 
 这个顺序很重要：**先有规范，再谈自动化**。反过来的话，工具会变成一个没有标准的玩具——你不知道它判得对不对，也无法解释它为什么打回一条需求。
 
-反过来也成立：**工具会反哺规范**。本次评测暴露了 DoR 三处措辞的歧义（详见「结果」与 `game-pm-playbook` 的 v0.3 修订记录），说明规范可以被检验、也应该被迭代。
+反过来也成立：**工具会反哺规范**。本次评测暴露了 DoR 三处措辞的歧义（详见「结果」与 [game-pm-playbook](https://github.com/dbwjhiqvdy/game-pm-playbook) 的 v0.3 修订记录），说明规范可以被检验、也应该被迭代。
