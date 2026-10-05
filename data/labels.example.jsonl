@@ -1,0 +1,6 @@
+// ⚠️ 这是「格式示例」，只填了 3 条，用于让你看懂怎么标注。
+// 它不是评测用的标注文件（那份是 labels.jsonl，需要你全部填完）。
+// 注意：示例里的判定是作者写的，你可以不同意——不同意正好说明标注有主观性。
+{"id": "R01", "human_missing": [], "note": "8 项齐全：有一句话体验、有验收数值、有断线异常、有依赖确认、无需新素材、有估算、有风险与砍法"}
+{"id": "R02", "human_missing": ["one_liner", "acceptance", "edge_cases", "dependencies", "assets", "estimation", "risk_and_cut"], "note": "只有一句「优化一下、体验更好」，除核心循环外几乎全缺"}
+{"id": "R05", "human_missing": ["acceptance", "edge_cases", "dependencies", "assets", "estimation", "risk_and_cut"], "note": "「参照竞品」「后面再定」= 典型的不可验收 + 无排期"}

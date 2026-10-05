@@ -1,0 +1,56 @@
+// 人工标注文件（ground truth）
+//
+// ⚠️ 标注来源与责任说明（2026-10-05）
+//   1. 20 条中有 13 条由作者（人）判定；其中 7 处与规则原文冲突之处，由助手在
+//      《reports/label-review-v1.md》复核中提出，经作者确认后修订，并由助手转录落地。
+//   2. 另外 7 条（R05/R10/R12/R14/R15/R18/R19）作者认为原文信息过少、无法判断，
+//      改由助手提出建议、经作者确认后落地。这 7 条的 note 字段均标注了该来源。
+//   3. 因此本文件**不是独立人工标注**，属于「作者主导 + 助手参与」的标注。
+//      该限制已在 README「已知局限」与复核记录第八节披露；
+//      引用基于本数据集的任何准确率 / 漏判率结论，必须同时引用这条限制。
+//
+// 填写规则：
+//   human_missing = 该需求「缺失」的 DoR 规则 id 列表
+//   - 8 项都满足 → []
+//   - 缺 2 项 → ["edge_cases", "estimation"]
+//   - 尚未标注 → null（评测脚本自动跳过，不会当成"已就绪"）
+//
+// 8 项规则 id（与 rubric.py 一一对应）：
+//   one_liner      一句话说得清
+//   core_loop      核心循环明确
+//   acceptance     验收标准可度量
+//   edge_cases     边界与异常已定义
+//   dependencies   依赖方已确认
+//   assets         素材到位或已有排期
+//   estimation     工作量已估算且拆到 ≤3 天
+//   risk_and_cut   风险与砍法已写明
+{"id": "R01", "human_missing": [], "note": "8 项齐全：体验描述、验收数值、断线异常、依赖已确认、无需新素材、2 人日、风险与砍法"}
+{"id": "R02", "human_missing": ["core_loop", "acceptance", "edge_cases", "dependencies", "assets", "estimation", "risk_and_cut"], "note": "core_loop 为复核时补入（原文无任何循环描述）；acceptance/edge_cases/dependencies/assets/estimation/risk_and_cut 由作者判定缺失。one_liner 按作者判断通过（「让玩家整理更方便」视为体验描述，边界判断，存疑）"}
+{"id": "R03", "human_missing": ["dependencies", "assets", "risk_and_cut"], "note": "服务端与美术均只提了需求、未给时间；有风险但未写延期砍法（复核时补入）"}
+{"id": "R04", "human_missing": [], "note": "8 项齐全。注意：本条为工程向需求，core_loop 按玩家向口径不适用，此处按「不适用即不计缺失」处理；该口径差异已在评测报告中披露"}
+{"id": "R05", "human_missing": ["one_liner", "core_loop", "acceptance", "edge_cases", "dependencies", "assets", "estimation", "risk_and_cut"], "note": "【助手建议、作者确认】原文为产品级描述（参照竞品、细节后面再定），8 项全缺。存疑项：one_liner（有人会认为「改版大厅」算描述）"}
+{"id": "R06", "human_missing": ["risk_and_cut"], "note": "工作量已写 4 人日并拆为程序 3 + 特效 1，满足「单块 ≤3 天」，故 estimation 通过（复核时移除）；全文无风险与砍法"}
+{"id": "R07", "human_missing": ["dependencies", "assets", "edge_cases", "risk_and_cut"], "note": "美术提供特效但未给排期，与 R03 同口径判为 dependencies/assets 缺失（复核时补入）；无异常处理、无风险与砍法"}
+{"id": "R08", "human_missing": ["acceptance", "edge_cases", "estimation", "dependencies", "risk_and_cut"], "note": "无验收标准（复核时补入）；无异常处理；无估算；后端接口未确认时间；无风险与砍法"}
+{"id": "R09", "human_missing": ["dependencies", "estimation"], "note": "工作量 8 人日未拆分，按「单块 ≤3 天」判 estimation 缺失；未列依赖方。风险与砍法均已写明，故 risk_and_cut 通过（复核时移除）"}
+{"id": "R10", "human_missing": ["one_liner", "core_loop", "acceptance", "edge_cases", "dependencies", "assets", "estimation", "risk_and_cut"], "note": "【助手建议、作者确认】仅一句系统行为描述，8 项全缺。存疑项：assets（未写「不需要新素材」，按严格口径计缺失）"}
+{"id": "R11", "human_missing": ["risk_and_cut"], "note": "有风险但未写延期砍法（复核时补入）；其余 7 项齐全"}
+{"id": "R12", "human_missing": ["core_loop", "acceptance", "edge_cases", "dependencies", "assets", "estimation", "risk_and_cut"], "note": "【助手建议、作者确认】one_liner 通过（「让玩家等待时间更短」属体验描述）；acceptance 因只有「太慢 / 更短」而无具体数值，仍属不可度量"}
+{"id": "R13", "human_missing": ["estimation", "risk_and_cut"], "note": "工作量 5 人日未拆分，按「单块 ≤3 天」判 estimation 缺失；无风险与砍法。验收、异常、依赖、素材均已写明"}
+{"id": "R14", "human_missing": ["one_liner", "core_loop", "acceptance", "edge_cases", "dependencies", "assets", "estimation", "risk_and_cut"], "note": "【助手建议、作者确认】功能罗列式需求，8 项全缺。存疑项：acceptance（列出创建/加入/退出是否算可演示路径）、risk_and_cut（「后续版本再做公会战」是否算范围裁剪）"}
+{"id": "R15", "human_missing": ["acceptance", "edge_cases", "dependencies", "assets", "estimation", "risk_and_cut"], "note": "【助手建议、作者确认】工具向需求：core_loop 按 R04 同口径视为不适用、不计缺失；one_liner 通过（「不用每次导入主工程跑一遍」属痛点描述）；其余 6 项缺失。注：本条即 game-pm-playbook 案例中的需求，可与 04-案例/02-需求评审记录.md 的人工评审结论对照"}
+{"id": "R16", "human_missing": ["estimation", "edge_cases"], "note": "未给工作量估算；无异常处理。验收标准、风险与砍法均已写明"}
+{"id": "R17", "human_missing": ["risk_and_cut"], "note": "原文明确「不需要新素材」，故 assets 通过（复核时移除）；全文无风险描述，risk_and_cut 缺失（复核时补入）"}
+{"id": "R18", "human_missing": ["core_loop", "acceptance", "edge_cases", "dependencies", "assets", "estimation", "risk_and_cut"], "note": "【助手建议、作者确认】one_liner 通过（「方便玩家沟通配合」属体验描述）；risk_and_cut 缺失——语音功能存在内容审核与合规风险，全文未提"}
+{"id": "R19", "human_missing": ["core_loop", "acceptance", "edge_cases", "dependencies", "assets", "estimation", "risk_and_cut"], "note": "【助手建议、作者确认】one_liner 通过（「让新玩家快点上手」属体验描述）；「简单做一下就行」属典型不可验收表述"}
+{"id": "R20", "human_missing": [], "note": "8 项齐全。边界项：公告图片的具体产出方未写明，暂按「运营提供内容」计入 assets 通过（存疑，若有第二复核人可再议）"}
+{"id": "R21", "human_missing": ["core_loop"], "note": "新一批样本 N1（助手起草、作者盲判）。core_loop 缺失为作者判定且经核对成立——正文确无循环描述；dependencies 按收紧后规则（已确认即通过）修订为通过"}
+{"id": "R22", "human_missing": [], "note": "新一批样本 N2。8 项全通过（作者盲判）"}
+{"id": "R23", "human_missing": [], "note": "新一批样本 N3。8 项全通过（作者盲判）"}
+{"id": "R24", "human_missing": [], "note": "新一批样本 N4。dependencies 经收紧后规则修订为通过（原文「已确认凭据可以随战斗初始化一起下发」）"}
+{"id": "R25", "human_missing": [], "note": "新一批样本 N5。8 项全通过（作者盲判）"}
+{"id": "R26", "human_missing": [], "note": "新一批样本 N6。edge_cases 与 assets 经收紧后规则修订为通过（有具体异常+期望行为；素材来源与时间均已写明）"}
+{"id": "R27", "human_missing": [], "note": "新一批样本 N7（工具链）。core_loop 按「工程/工具类需求不适用」口径修订为通过，与 R04/R15 同口径"}
+{"id": "R28", "human_missing": ["risk_and_cut"], "note": "新一批边界样本 B1（故意缺 risk_and_cut）。dependencies 与 edge_cases 经收紧后规则修订为通过"}
+{"id": "R29", "human_missing": ["edge_cases", "assets"], "note": "新一批边界样本 B2（故意缺 edge_cases 与 assets）"}
+{"id": "R30", "human_missing": ["estimation"], "note": "新一批边界样本 B3（故意缺 estimation）。edge_cases 经作者按宽口径判定为通过（「连续点击四次只收到三次」视为边界情形+期望行为）"}

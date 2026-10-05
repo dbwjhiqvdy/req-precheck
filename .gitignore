@@ -1,0 +1,13 @@
+# 密钥：绝不允许提交
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# MOCK 模式的产物不纳入版本管理（它不是证据）
+results/*_MOCK*
+reports/_MOCK_*
+
+# 但真实评测结果要提交 —— 那是工具效果的证据，见 README「结果」一节
